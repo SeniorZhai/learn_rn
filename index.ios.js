@@ -12,28 +12,13 @@ import {
     View
 } from 'react-native';
 
-class Blink extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {showText:true};
-        setInterval(()=>{
-            this.setState({showText:!this.state.showText})
-        },1000)
-    }
-
-    render() {
-        let display = this.state.showText ? this.props.text : "";
-        return (
-            <Text>{display}</Text>
-        );
-    }
-}
-
 export default class LearnRN extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Blink text='Java'/>
+                <Text style={styles.welcome}>Welcome</Text>
+                <Text style={[styles.welcom,styles.instructions]}>Array</Text>
+                <View style={{width:50,height:50,backgroundColor:'red'}}></View>
             </View>
         );
     }
