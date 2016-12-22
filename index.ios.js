@@ -12,11 +12,20 @@ import {
     View
 } from 'react-native';
 
-class Greeting extends Component {
+class Blink extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {showText:true};
+        setInterval(()=>{
+            this.setState({showText:!this.state.showText})
+        },1000)
+    }
+
     render() {
+        let display = this.state.showText ? this.props.text : "";
         return (
-            <Text>Hello {this.props.name}</Text>
-        )
+            <Text>{display}</Text>
+        );
     }
 }
 
@@ -24,7 +33,7 @@ export default class LearnRN extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Greeting name='Java'/>
+                <Blink text='Java'/>
             </View>
         );
     }
