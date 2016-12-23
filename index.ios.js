@@ -8,9 +8,8 @@ import React, { Component } from 'react';
 import {
     AppRegistry,
     StyleSheet,
-    Text,
-    TextInput,
-    View
+    ScrollView,
+    Image,
 } from 'react-native';
 
 export default class LearnRN extends Component {
@@ -21,16 +20,27 @@ export default class LearnRN extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <TextInput
-                    style={{height: 40}}
-                    placeholder="Type here to translate!"
-                    onChangeText={(text) => this.setState({text})}
-                />
-                <Text style={{padding: 10, fontSize: 42}}>
-                    {this.state.text}
-                </Text>
-            </View>
+            <ScrollView style={styles.container}>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+               <Image source={require('./img/avatar.png')}></Image>
+            </ScrollView>
         );
     }
 }
