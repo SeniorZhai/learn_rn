@@ -8,40 +8,31 @@ import React, { Component } from 'react';
 import {
     AppRegistry,
     StyleSheet,
-    ScrollView,
-    Image,
+    ListView,
+    Text,
+    View,
 } from 'react-native';
 
 export default class LearnRN extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {text: ''};
+        // 判断两行数据是否是同一个数据
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.state = {
+            dataSource: ds.cloneWithRows([
+                'Java','C++',"C","PHP","Ruby","SQL","JS","Object-C"
+            ])
+        };
     }
-
     render() {
         return (
-            <ScrollView style={styles.container}>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-               <Image source={require('./img/avatar.png')}></Image>
-            </ScrollView>
-        );
+            <View style={styles.container}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={(rowData) => <Text style={styles.text}>{rowData}</Text>}
+                />
+            </View>
+        )
     }
 }
 
@@ -52,6 +43,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF',
         paddingTop: 30
     },
+    text : {
+        fontSize: 30
+    }
 });
 
 AppRegistry.registerComponent('LearnRN', () => LearnRN);
